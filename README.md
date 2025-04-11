@@ -20,8 +20,8 @@ Replay Option: Prompt to play another round after each game concludes.
 bash
 Copy
 Edit
-tic-tac-toe-virtual/
-├── Main.java         # Contains the game logic and main method
+tic-tac-toe-virtual/<br>
+├── Main.java         # Contains the game logic and main method<br>
 └── README.md         # Project documentation
 
 ---

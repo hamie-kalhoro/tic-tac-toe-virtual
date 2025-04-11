@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -14,14 +15,21 @@ public class Main {
         printGameBoard(gameBoard);
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your placement (1-9): ");
-        int pos = scanner.nextInt();
 
-        System.out.println(pos);
+        while(true) {
+            System.out.print("Enter your placement (1-9): ");
+            int playerPos = scanner.nextInt();
 
+            System.out.println(playerPos);
 
+            placePiece(gameBoard, playerPos, "player");
 
-        printGameBoard(gameBoard);
+            Random rand = new Random();
+            int cpuPos = rand.nextInt(9)+1;
+            placePiece(gameBoard, cpuPos, "computer");
+
+            printGameBoard(gameBoard);
+        }
 
     }
 

@@ -23,17 +23,31 @@ public class Main {
             System.out.print("Enter your placement (1-9): ");
             int playerPos = scanner.nextInt();
 
+            while (playerPositions.contains(playerPos) || cpuPositions.contains(playerPos)) {
+                System.out.print("Position taken! Enter a correct placement (1-9): ");
+                playerPos = scanner.nextInt();
+            }
+
             System.out.println(playerPos);
 
             placePiece(gameBoard, playerPos, "player");
 
             Random rand = new Random();
             int cpuPos = rand.nextInt(9)+1;
+
+            while (playerPositions.contains(cpuPos) || cpuPositions.contains(cpuPos)) {
+                cpuPos = rand.nextInt(9)+1;
+            }
+
             placePiece(gameBoard, cpuPos, "computer");
 
             printGameBoard(gameBoard);
 
-            checkWinner();
+            String result = checkWinner();
+            if(result.length() > 0) {
+                System.out.println(result);
+                break;
+            }
         }
 
     }
